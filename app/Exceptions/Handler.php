@@ -49,10 +49,9 @@ class Handler extends ExceptionHandler
             NotFoundHttpException $exception,
             Request $request
         ) {
-
             if ($request->wantsJson()) {
                 $message = $exception->getMessage();
-                if (!empty($message)) {
+                if (! empty($message)) {
                     return $this->showError(message: 'Record not found !');
                 }
             }

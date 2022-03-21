@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Traits;
-
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
@@ -13,7 +11,7 @@ trait ApiResponser
     private $errorMsg = 'Error occurred !';
 
 
-    public function showOne(mixed $data, array|string|null $message = '',): JsonResponse
+    public function showOne(mixed $data, array|string|null $message = ''): JsonResponse
     {
         if ($message == '') {
             $message = $this->successMsg;
@@ -31,7 +29,7 @@ trait ApiResponser
         return response()->json(['massage' => $message, 'data' => $data]);
     }
 
-    public function showError(array|string|null $message, array|null $data = null,): JsonResponse
+    public function showError(array|string|null $message, array|null $data = null): JsonResponse
     {
         if ($message == '') {
             $message = $this->errorMsg;

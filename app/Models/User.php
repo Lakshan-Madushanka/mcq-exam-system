@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,11 +17,11 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
-    const QUESTIONNAIRE_STATUS = [
+    public const QUESTIONNAIRE_STATUS = [
         'not_started' => 0,
-        'started'     => 1,
-        'finished'    => 2,
-        'unfinished'  => 3,
+        'started' => 1,
+        'finished' => 2,
+        'unfinished' => 3,
     ];
     /**
      * The attributes that are mass assignable.
@@ -65,8 +64,8 @@ class User extends Authenticatable
         return $query;
     }
 
-   /* public function finishedQuestionnaires(): BelongsToMany
-    {
-        return $this->belongsToMany(Questionnaire::class)->wherePivot()->withPivot(['status'])->withTimestamps();
-    }*/
+    /* public function finishedQuestionnaires(): BelongsToMany
+     {
+         return $this->belongsToMany(Questionnaire::class)->wherePivot()->withPivot(['status'])->withTimestamps();
+     }*/
 }

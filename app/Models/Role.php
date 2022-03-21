@@ -10,10 +10,10 @@ class Role extends Model
 {
     use HasFactory;
 
-    const TYPES = [
+    public const TYPES = [
         'SUPER_ADMIN' => 1,
-        'ADMIN'       => 2,
-        'USER'        => 3,
+        'ADMIN' => 2,
+        'USER' => 3,
     ];
 
     public function users(): BelongsToMany

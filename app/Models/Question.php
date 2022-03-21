@@ -10,10 +10,10 @@ class Question extends Model
 {
     use HasFactory;
 
-    const DIFFICULTY = [
-        'easy'   => 1,
+    public const DIFFICULTY = [
+        'easy' => 1,
         'medium' => 2,
-        'hard'   => 3,
+        'hard' => 3,
     ];
 
     public function questionnaires(): BelongsToMany
@@ -30,5 +30,4 @@ class Question extends Model
     {
         return $this->belongsToMany(Answer::class)->withTimestamps();
     }
-
 }
