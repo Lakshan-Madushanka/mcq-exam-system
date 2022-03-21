@@ -6,13 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "friendsofphp/php-cs-fixer": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
-        "laravel/telescope": "^4.8",
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
+        "laravel/telescope": "^4.8",
         "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
@@ -46,11 +47,16 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "format": "vendor/bin/php-cs-fixer fix -vvv --allow-risky=yes --show-progress=dots"
     },
+
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope",
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "config": {
